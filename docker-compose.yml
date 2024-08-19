@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  flask-app:
+    image: python:3.9-slim  # Use an official Python image
+    working_dir: /app
+    volumes:
+      - .:/app  # Mount the current directory to /app in the container
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development  # Set the environment to development
+    command: >
+      sh -c "
+      pip install --no-cache-dir -r requirements.txt &&
+      gunicorn -w 4 -b 0.0.0.0:5000 app:app
+      "

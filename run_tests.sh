@@ -1,0 +1,1 @@
+ pytest --log-cli-level=DEBUG --log-cli-format="%(asctime)s - %(name)s - %(levelname)s - %(message)s" tests/conftest.py tests/test_users.py tests/test_messages.py --cov=app --cov-report=term --cov-report=html
